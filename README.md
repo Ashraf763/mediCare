@@ -2,6 +2,13 @@
 
     MediCare
 
+# Live Demo:
+
+# key points
+
+    * Made entirely from scratch.
+    * Dynamic UI
+
 ## Objective
 
     You are tasked with implementing a Medication Management app for both patients and caretakers. The app features role-based dashboards, medication tracking, and other essential functionalities. You will be working with React for the frontend, and SQLite and Node.js for the backend.
@@ -60,14 +67,9 @@
 
 ## Resources
 
-### Design files
-
-    List the references of design files required for the Assignment
-
-### APIs
-
-    List the APIs, providing any relevant endpoints, documentation links, or access keys, required for the Assignment if any
-
 ### Third-party packages
 
-    List the Third-party packages required for the Assignment, if any
+    * bcrypt
+    * express
+    * jsonwebtoken
+    * sqlite3
