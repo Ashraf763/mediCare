@@ -1,0 +1,101 @@
+.main-login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+}
+
+.login-container {
+  background-color: white;
+  width: 40%;
+  border-radius: 8px;
+  border: 1px solid gray;
+  @media (max-width: 767px) {
+    width: 90%;
+  }
+}
+
+.login-type-container {
+  display: flex;
+
+  button {
+    width: 50%;
+    padding: 10px 15px;
+    border: 0;
+    font-size: large;
+  }
+
+  button:nth-child(odd) {
+    border-top-left-radius: 8px;
+  }
+  button:nth-child(even) {
+    border-top-right-radius: 8px;
+  }
+}
+
+.login-type-container .active {
+  background-color: white;
+}
+
+.login-type-container .not-active {
+  background-color: gray;
+  color: aliceblue;
+}
+
+.login-form {
+  padding: 40px;
+  position: relative;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 35px 0;
+  font-family: "Roboto";
+}
+
+.input-container input {
+  padding: 4px 8px;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 14px;
+  outline: none;
+  background-color: none;
+}
+
+.input-container label {
+  top: 0;
+  left: 0;
+  position: absolute;
+  font-size: 14px;
+  transition: 0.3s;
+  pointer-events: none;
+  color: rgb(38, 38, 221);
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label {
+  top: -20px;
+  left: 0;
+  font-size: 12px;
+  color: rgb(27, 191, 27);
+}
+
+.login-btn {
+  margin-top: 25px;
+  width: 25%;
+  padding: 6px 15px;
+  border-radius: 6px;
+  background: linear-gradient(to right, rgb(38, 38, 221), rgb(27, 191, 27));
+  color: white;
+  border: 0;
+}
+
+.checkbox-container {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,25 @@
+.caretaker {
+  background: linear-gradient(to left, #3b82f6, #22c55e);
+}
+
+.btns-container {
+  display: flex;
+  margin: 10px 0 20px;
+  padding: 3px;
+  background-color: #f0f0f0;
+
+  button {
+    width: 25%;
+    padding: 8px;
+    border: 0;
+    color: gray;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.active-btn {
+  background-color: white;
+  color: red;
+  border-radius: 6px;
+}

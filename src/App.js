@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Login from "./components/Login";
+import Home from "./components/Home";
+import Patient from "./components/Patient";
+import Caretaker from "./components/Caretaker";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/login" Component={Login} />
+          <Route exact path="/" Component={Home} />
+          <Route exact path="/patient" Component={Patient} />
+          <Route exact path="/caretaker" Component={Caretaker} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+// import "./App.css";
+// import Wrapper from "./components/Wrapper";
+// import NotFound from "./components/NotFound";
+
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="*" Component={Wrapper} />
+//         <Route path="/not-found" Component={NotFound} />
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
+
+// export default App;

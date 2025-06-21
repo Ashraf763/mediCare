@@ -1,0 +1,35 @@
+.recent-activity {
+  background-color: white;
+  padding: 18px;
+  border-radius: 8px;
+
+  h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}
+
+.tick {
+  color: #22c55e;
+  background-color: rgb(220 252 231);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  margin: 15px 0;
+}
+
+.completed {
+  font-size: small;
+  background-color: rgba(128, 128, 128, 0.268);
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+
+.missed {
+  background-color: rgba(255, 0, 0, 0.37);
+}

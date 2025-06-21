@@ -1,0 +1,163 @@
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.main-home {
+  width: min(1300px, 95%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+}
+
+.heart-container {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(
+    to bottom right,
+    rgb(38, 38, 221),
+    rgb(27, 191, 27)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.home-intro {
+  font-family: "Roboto";
+}
+
+.home-intro h1 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.home-intro p {
+  font-size: 1.2rem;
+  line-height: 1.75rem;
+  width: min(1000px, 95%);
+  text-align: center;
+}
+
+.desc-container {
+  display: flex;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+}
+
+.patient-icon {
+  background-color: rgb(133, 164, 248);
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  align-self: center;
+}
+
+.home-desc-container {
+  color: gray;
+  border: 0.5px solid rgba(128, 128, 128, 0.192);
+  box-shadow: 0 0 3px;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    color: rgb(47, 47, 222);
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li::before {
+    content: "•";
+    color: rgb(47, 47, 222);
+    padding-right: 0.5em;
+    font-size: larger;
+  }
+
+  button {
+    padding: 10px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: rgb(106, 141, 238);
+    transition: 0.2 ease;
+  }
+
+  button:hover {
+    background-color: rgb(47, 47, 222);
+  }
+}
+
+.home-desc-container:hover {
+  border: 1px solid rgb(128, 128, 238);
+  box-shadow: 0 0 5px rgb(108, 108, 238);
+
+  .patient-icon {
+    background-color: rgb(106, 141, 238);
+  }
+}
+
+.second {
+  h1 {
+    color: rgb(12, 154, 12);
+  }
+
+  li::before {
+    content: "•";
+    color: rgb(12, 154, 12);
+    padding-right: 0.5em;
+    font-size: larger;
+  }
+
+  button {
+    background-color: rgb(17, 219, 17);
+  }
+
+  button:hover {
+    background-color: rgb(12, 154, 12);
+  }
+}
+
+.caretaker-icon {
+  background-color: rgb(111, 221, 111);
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  align-self: center;
+}
+
+.second:hover {
+  border: 1px solid rgb(111, 221, 111);
+  box-shadow: 0 0 5px rgb(111, 221, 111);
+
+  .caretaker-icon {
+    background-color: rgb(17, 219, 17);
+  }
+}
+
+.gray-txt {
+  color: gray;
+  font-size: 0.8rem;
+}

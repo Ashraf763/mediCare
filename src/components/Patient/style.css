@@ -1,0 +1,204 @@
+.patient {
+  background-color: aliceblue;
+}
+
+.main-patient {
+  width: min(1300px, 90%);
+  margin: 0 auto;
+}
+
+.medicatioon-card {
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin: 1.8rem 0;
+  background: linear-gradient(to right, #3b82f6, #22c55e);
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.icon {
+  height: 60px;
+  width: 60px;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.greetings-container {
+  margin: 8px;
+  h1 {
+    color: white;
+    margin: 5px 0 0;
+    font-size: 1.8rem;
+  }
+
+  p {
+    color: white;
+    margin-top: 0;
+  }
+}
+
+.streaks-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  div {
+    width: 95%;
+    background-color: rgba(255, 255, 255, 0.126);
+    margin: 10px 5px;
+    border-radius: 8px;
+    padding: 0 1rem;
+    color: white;
+
+    h2 {
+      margin: 5px 0;
+      font-size: 1.4rem;
+    }
+
+    p {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .flex {
+    display: flex;
+    padding-bottom: 25px;
+  }
+
+  .todays-medication-container {
+    width: 50%;
+    margin-right: 10px;
+  }
+
+  .calender {
+    width: 50%;
+  }
+}
+
+.todays-medication-container {
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  margin-bottom: 1.8rem;
+  border: 1px solid rgba(128, 128, 128, 0.214);
+
+  h2 {
+    font-size: 1.5rem;
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+  }
+}
+
+.daily-reminder-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(128, 128, 128, 0.353);
+  border-radius: 8px;
+  padding: 0 10px;
+  margin: 15px 0;
+}
+
+.daily-reminder-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.reminder {
+  display: flex;
+  align-items: center;
+
+  div {
+    margin-left: 10px;
+
+    h3 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    p {
+      color: gray;
+      margin: 0;
+      font-size: 13px;
+    }
+  }
+}
+
+.no-of-medications {
+  height: 50px;
+  width: 50px;
+  background-color: #3b83f65e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: rgba(0, 0, 255, 0.868);
+  font-weight: 700;
+}
+
+.reminder-time {
+  border: 1px solid rgba(128, 128, 128, 0.723);
+  height: fit-content;
+  padding: 6px 15px;
+  border-radius: 12px;
+  font-size: small;
+}
+
+.add-image-container {
+  border: 1px solid rgba(128, 128, 128, 0.364);
+  border-style: dashed;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  p {
+    color: gray;
+    font-size: small;
+  }
+
+  input {
+    margin: 15px 0 10px;
+    cursor: pointer;
+  }
+}
+
+.custom-file-input {
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #4caf50;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: small;
+  cursor: pointer;
+}
+
+.custom-file-input:hover {
+  background-color: #e8f5e9;
+  border-color: #388e3c;
+}

@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Title
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    MediCare
 
-## Available Scripts
+## Objective
 
-In the project directory, you can run:
+    You are tasked with implementing a Medication Management app for both patients and caretakers. The app features role-based dashboards, medication tracking, and other essential functionalities. You will be working with React for the frontend, and SQLite and Node.js for the backend.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    * Frontend: React, Javascript, Html, CSS.
+    * Backend: Node.js, SQL.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Completion Instructions
 
-### `npm test`
+### Functionality
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Must Have
 
-### `npm run build`
+1. SQLite Authentication: Implement user login/signup with SQLite
+   authentication.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Basic CRUD for Medications:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   - Add medications with relevant details (name, dosage, frequency).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   - Mark medications as taken for the day.
 
-### `npm run eject`
+   - View medications in a list format.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Dashboard Implementation:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   - Connect one dashboard (either patient or caretaker) to real data from SQLite.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Nice to Have
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Real-Time Updates: Implement real-time updates for caretaker-patient interactions.
 
-## Learn More
+2. Adherence Tracking: Implement basic adherence tracking functionality.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Guidelines to develop a project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Must Have
 
-### Code Splitting
+    List the necessary guidelines to follow while developing the project, mentioned in the Assignment, if any
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Nice to Have
 
-### Analyzing the Bundle Size
+    List the additional/suggested guidelines to follow while developing the project, mentioned in the Assignment, if any
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Submission Instructions
 
-### Making a Progressive Web App
+#### Must Have
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Submit your project files, including the codebase, tests, and README.
 
-### Advanced Configuration
+- Ensure your repository is well-structured, and follow good coding practices.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Ensure the app is functional as per the requirements and that it runs without errors.
 
-### Deployment
+## Resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Design files
 
-### `npm run build` fails to minify
+    List the references of design files required for the Assignment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### APIs
+
+    List the APIs, providing any relevant endpoints, documentation links, or access keys, required for the Assignment if any
+
+### Third-party packages
+
+    List the Third-party packages required for the Assignment, if any
