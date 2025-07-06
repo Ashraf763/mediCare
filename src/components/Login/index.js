@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import axios from "axios";
 import "./style.css";
 
 const Login = () => {
@@ -7,17 +9,98 @@ const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [newpassword, setNewPassword] = useState("");
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  useEffect(() => {
+    const token = Cookies.get("medicare_token");
+    if (token !== undefined) {
+      navigate("/");
+    }
+  });
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    navigate("/", { replace: true });
+    setError("");
+    // navigate("/", { replace: true });
+    const userDetails = { username, password };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/login",
+        userDetails
+      );
+      console.log(response);
+
+      setError("");
+      // navigate("/");
+    } catch (err) {
+      // setError(err.response?.data?.message || "failed to Login");
+      // console.log(err.response?.data?.message || "failed to Login");
+      console.log(err);
+    }
+  };
+
+  const handleRegistration = async (e) => {
+    e.preventDefault();
+    setError("");
+    if (password !== newpassword) {
+      setError("Passwords do not match");
+      return;
+    } else if (
+      password === username ||
+      password.toLocaleLowerCase() === username.toLowerCase()
+    ) {
+      setError("Username and Password should not match");
+      return;
+    }
+
+    try {
+      const userDetails = { username, password };
+      const response = await axios.post(
+        "http://localhost:5000/register",
+        userDetails
+      );
+      console.log(response);
+
+      setError("");
+      isLogin(true);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const changeLoginMethod = () => {
+    setIsLogin(!isLogin);
+    setUsername("");
+    setPassword("");
+    setNewPassword("");
   };
 
   const handleLoginform = () => (
     <form className="login-form" onSubmit={handleLogin} id="login">
-      {renderUsernameAndpassword()}
+      <div className="input-container">
+        <input
+          type="text"
+          id="username"
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
+          placeholder="Username"
+          required
+          autoComplete="off"
+        />
+        <input
+          type={showPassword ? "text" : "password"}
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          autoComplete="off"
+          placeholder="Password"
+        />
+      </div>
       <div className="checkbox-container">
         <input
           type="checkbox"
@@ -26,19 +109,8 @@ const Login = () => {
         />
         <label htmlFor="showPassword">Show Password</label>
       </div>
-      <button type="submit" className="login-btn">
-        Login
-      </button>
-    </form>
-  );
 
-  const handleRefistrationForm = () => (
-    <form className="login-form" onSubmit={handleLogin} id="registration">
-      {renderUsernameAndpassword()}
-      <div className="input-container">
-        <input type="password" id="newpassword" />
-        <label htmlFor="newpassword">Re-type New password</label>
-      </div>
+      {error && <p className="error-msg">*{error}</p>}
 
       <button type="submit" className="login-btn">
         Login
@@ -46,19 +118,22 @@ const Login = () => {
     </form>
   );
 
-  const renderUsernameAndpassword = () => (
-    <>
+  const handleRegistrationForm = () => (
+    <form
+      className="login-form"
+      onSubmit={handleRegistration}
+      id="registration"
+    >
       <div className="input-container">
         <input
           type="text"
           id="username"
           onChange={(e) => setUsername(e.target.value)}
           value={username}
+          placeholder="Username"
           required
+          autoComplete="off"
         />
-        <label htmlFor="username">User Name</label>
-      </div>
-      <div className="input-container">
         <input
           type={showPassword ? "text" : "password"}
           id="password"
@@ -66,34 +141,39 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
           autoComplete="off"
+          placeholder="Password"
         />
-        <label htmlFor="password">
-          {isLogin ? "Password" : "New Password"}
-        </label>
+        <input
+          type="password"
+          id="newpassword"
+          placeholder="Re-type New Password"
+          autoComplete="off"
+          onChange={(e) => setNewPassword(e.target.value)}
+          value={newpassword}
+          className="user-input"
+        />
       </div>
-    </>
+
+      {error && <p className="error-msg">*{error}</p>}
+
+      <button type="submit" className="login-btn">
+        Register
+      </button>
+    </form>
   );
 
   return (
     <div className="main-login">
       <div className="login-container">
-        <div className="login-type-container">
-          <button
-            type="button"
-            className={isLogin ? "active" : "not-active"}
-            onClick={() => setIsLogin(true)}
-          >
-            Login
+        <h2>{isLogin ? "Login" : "Register"}</h2>
+        {isLogin ? handleLoginform() : handleRegistrationForm()}
+
+        <p className="have-an-account">
+          {isLogin ? "Don't" : "Already"} have an account?{" "}
+          <button type="button" onClick={changeLoginMethod}>
+            {isLogin ? "Register" : "Login"}
           </button>
-          <button
-            type="button"
-            className={!isLogin ? "active" : "not-active"}
-            onClick={() => setIsLogin(false)}
-          >
-            Sign Up
-          </button>
-        </div>
-        {isLogin ? handleLoginform() : handleRefistrationForm()}
+        </p>
       </div>
     </div>
   );
