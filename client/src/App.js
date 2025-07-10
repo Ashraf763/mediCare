@@ -2,9 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Home from "./components/Home";
-import Patient from "./components/Patient";
-import Caretaker from "./components/Caretaker";
+import ProtectedRoute from "./components/ProtectedRoute";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -13,9 +12,8 @@ function App() {
         <Routes>
           <Route exact path="/login" Component={Login} />
           <Route exact path="/register" Component={Register} />
-          <Route exact path="/" Component={Home} />
-          <Route exact path="/patient" Component={Patient} />
-          <Route exact path="/caretaker" Component={Caretaker} />
+          <Route path="*" Component={ProtectedRoute} />
+          <Route path="/not-found" Component={NotFound} />
         </Routes>
       </BrowserRouter>
     </div>
