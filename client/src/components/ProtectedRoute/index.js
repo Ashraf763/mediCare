@@ -20,10 +20,10 @@ const ProtectedRoute = () => {
   return (
     <>
       <Routes>
-        <Route exact path="/" Component={Home} />
-        <Route exact path="/patient" Component={Patient} />
-        <Route exact path="/caretaker" Component={Caretaker} />
-        <Route Component={NotFound} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/patient" element={<Patient />} />
+        <Route exact path="/caretaker" element={<Caretaker />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
