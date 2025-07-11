@@ -1,11 +1,18 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import "./style.css";
 import { IoPersonOutline } from "react-icons/io5";
+import { IoIosLogOut } from "react-icons/io";
 
 const Header = () => {
   const navigate = useNavigate();
   const user = useLocation().pathname.slice(1);
+
+  const handleLogout = () => {
+    Cookies.remove("medicare_token");
+    navigate("/login");
+  };
 
   return (
     <nav className="main-header">
@@ -20,17 +27,42 @@ const Header = () => {
           </div>
         </div>
 
-        <button
-          type="button"
-          onClick={() => {
-            navigate(user === "patient" ? "/caretaker" : "/patient", {
-              replace: true,
-            });
-          }}
-        >
-          <IoPersonOutline />
-          <span>Switch to {user === "patient" ? "Caretaker" : "Patient"}</span>
-        </button>
+        <div className="flex-row large-scr">
+          <button
+            type="button"
+            onClick={() => {
+              navigate(user === "patient" ? "/caretaker" : "/patient", {
+                replace: true,
+              });
+            }}
+          >
+            <IoPersonOutline />
+            <span>
+              Switch to {user === "patient" ? "Caretaker" : "Patient"}
+            </span>
+          </button>
+
+          <button type="button" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
+
+        <div className="flex-row small-scr">
+          <button
+            type="button"
+            onClick={() => {
+              navigate(user === "patient" ? "/caretaker" : "/patient", {
+                replace: true,
+              });
+            }}
+          >
+            {user === "patient" ? "Caretaker" : "Patient"}
+          </button>
+
+          <button type="button" className="logout-btn" onClick={handleLogout}>
+            <IoIosLogOut />
+          </button>
+        </div>
       </div>
     </nav>
   );
