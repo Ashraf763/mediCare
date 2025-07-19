@@ -14,7 +14,6 @@ const Login = () => {
 
   useEffect(() => {
     const token = Cookies.get("medicare_token");
-    console.log(token);
     if (token !== undefined) {
       navigate("/");
     }
@@ -31,17 +30,13 @@ const Login = () => {
         "http://localhost:5000/login",
         userDetails
       );
-      console.log(response);
       const token = response?.data?.token;
-      console.log(token);
       Cookies.set("medicare_token", token, { expires: 30 });
 
       setError("");
       navigate("/");
     } catch (err) {
-      setError(err.response?.data?.message || "failed to Login");
-      // console.log(err.response?.data?.message || "failed to Login");
-      console.log(err);
+      setError(err.response?.data || "failed to Login");
     }
   };
 

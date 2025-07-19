@@ -14,7 +14,6 @@ const Register = () => {
 
   useEffect(() => {
     const token = Cookies.get("medicare_token");
-    console.log(token);
     if (token !== undefined) {
       navigate("/");
     }
@@ -40,11 +39,9 @@ const Register = () => {
         "http://localhost:5000/register",
         userDetails
       );
-      console.log(response?.data?.message);
 
       navigate("/login");
     } catch (err) {
-      console.log(err?.response?.data?.message);
       setError(err?.response?.data?.message);
     }
   };
