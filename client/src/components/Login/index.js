@@ -4,6 +4,15 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import "./style.css";
 
+const API_URL = process.env.REACT_APP_API_URI;
+
+const instance = axios.create({
+  baseURL: API_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
@@ -22,14 +31,10 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
-    // navigate("/", { replace: true });
     const userDetails = { username, password };
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/login",
-        userDetails
-      );
+      const response = await instance.post(`${API_URL}/login`, userDetails);
       const token = response?.data?.token;
       Cookies.set("medicare_token", token, { expires: 30 });
 

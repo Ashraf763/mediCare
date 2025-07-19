@@ -65,7 +65,6 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
-    console.log(username, password);
 
     if (!username || !password) {
       return res.status(400).json("username and password required");
@@ -80,13 +79,12 @@ app.post("/login", async (req, res) => {
     if (!isPasswordMatch) {
       return res.status(400).json("Invalid Credentials");
     }
-    const token = jwt.sign({ username: user.username }, SECRET_KEY, {
-      expiresIn: "4h",
-    });
+    const token = jwt.sign({ username: user.username }, SECRET_KEY);
 
     res.json({ token });
   } catch (error) {
     res.status(500).send("server error: ", error);
+    console.log(error);
   }
 });
 

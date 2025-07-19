@@ -4,6 +4,15 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import "./style.css";
 
+const API_URL = process.env.REACT_APP_API_URI;
+
+const instance = axios.create({
+  baseURL: API_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
 const Register = () => {
   const [newpassword, setNewPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -35,10 +44,9 @@ const Register = () => {
 
     try {
       const userDetails = { username, password };
-      const response = await axios.post(
-        "http://localhost:5000/register",
-        userDetails
-      );
+      const response = await instance.post(`${API_URL}/register`, userDetails);
+      alert("User Created Successfully, Now Login!");
+      console.log(response);
 
       navigate("/login");
     } catch (err) {
